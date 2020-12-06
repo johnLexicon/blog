@@ -1,11 +1,12 @@
 <template>
   <div>
     <h1>Previews</h1>
+    <input v-model="searchCriteria" class="form-control w-25" placeholder="Search title..." type="text">
     <div v-if="!isLoaded">
       <p>Retrieving post previews...</p>
     </div>
     <!-- Grid row -->
-    <div v-else class="row my-4" v-for="post in posts" :key="post._id">
+    <div v-else class="row my-4" v-for="post in filteredPosts" :key="post._id">
       <!-- Grid column -->
       <div class="col-lg-12 col-md-12">
         <!--Panel-->
@@ -38,7 +39,13 @@ export default {
     return {
       posts: [],
       isLoaded: false,
+      searchCriteria: '',
     };
+  },
+  computed: {
+    filteredPosts() {
+      return this.posts.filter(p => p.title.toUpperCase().match(this.searchCriteria.toUpperCase()));
+    }
   },
   methods: {
     async retrievePosts() {
@@ -56,5 +63,6 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
 </style>
