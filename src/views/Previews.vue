@@ -5,7 +5,7 @@
       <p>Retrieving post previews...</p>
     </div>
     <!-- Grid row -->
-    <div v-else class="row my-4" v-for="post in posts" :key="post.id">
+    <div v-else class="row my-4" v-for="post in posts" :key="post._id">
       <!-- Grid column -->
       <div class="col-lg-12 col-md-12">
         <!--Panel-->
