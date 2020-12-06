@@ -12,9 +12,9 @@
         <div class="card text-center">
           <div class="card-body">
             <h4 class="card-title">{{ post.title }}</h4>
-            <p class="card-text">{{ post.body }}</p>
+            <p class="card-text">{{ post.preview }}</p>
             <router-link
-              :to="{ name: 'BlogPost', params: { postId: post.id } }"
+              :to="{ name: 'BlogPost', params: { postId: post._id } }"
               class="btn btn-success btn-sm"
               >Read more</router-link
             >
@@ -43,13 +43,11 @@ export default {
   methods: {
     async retrievePosts() {
       try {
-        setTimeout(async () => {
-          const result = await axios.get(
-            "https://jsonplaceholder.typicode.com/posts"
-          );
-          this.posts = result.data;
-          this.isLoaded = true;
-        }, 3000);
+        const result = await axios.get(
+          "http://localhost:9999/api/posts/?justpreviews=true"
+        );
+        this.posts = result.data;
+        this.isLoaded = true;
       } catch (error) {
         console.log(error);
       }

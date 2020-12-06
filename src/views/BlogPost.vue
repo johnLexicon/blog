@@ -21,7 +21,7 @@ export default {
     methods: {
         async retrievePost(postId){
             try{
-                const result = await axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+                const result = await axios.get(`http://localhost:9999/api/posts/${postId}`);
                 this.post = result.data;
             } catch(error) {
                 console.log(error);
