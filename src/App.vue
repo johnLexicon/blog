@@ -2,6 +2,7 @@
   <div id="app" class="container">
     <div id="nav">
       <router-link to="/">Previews</router-link> |
+      <router-link to="/create">Create Post</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>

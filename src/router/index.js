@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Previews from '../views/Previews.vue'
 import BlogPost from '../views/BlogPost.vue'
-
+import CreatePost from '../views/CreatePost.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -10,6 +10,11 @@ const routes = [
     path: '/',
     name: 'Previews',
     component: Previews
+  },
+  {
+    path: '/create',
+    name: 'CreatePost',
+    component: CreatePost
   },
   {
     path: '/about',
