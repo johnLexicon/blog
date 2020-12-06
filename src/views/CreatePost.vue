@@ -1,33 +1,9 @@
 <template>
   <div class="d-flex">
     <div class="col-md-6 col-lg-6">
-        <h1>Create Post</h1>
-        <!-- Default form contact -->
-        <form @submit.prevent="createPost" class="text-center border border-light p-5">
-          <input
-            v-model="post.title"
-            type="text"
-            id="title"
-            name="title"
-            required
-            maxlength="50"
-            class="form-control mb-4"
-            placeholder="Title..."
-          />
-          <div class="form-group">
-            <textarea
-              v-model="post.body"
-              class="form-control rounded-0"
-              required
-              id="content"
-              rows="20"
-              placeholder="Blog message..."
-            ></textarea>
-          </div>
-          <button class="btn btn-success btn-block" type="submit">Create</button>
-        </form>
+        <AppForm @on-create-post="createPost" :post="post" />
     </div>  
-    <div class="col-md-6 col-lg-6 text-center text-wrap">
+    <div class="col-md-6 col-lg-6 text-center text-wrap text-muted">
         <h1>{{ post.title }}</h1>
         <p class="word-wrap">{{ post.body }}</p>
     </div>
@@ -36,8 +12,13 @@
 
 <script>
 import axios from 'axios'
+import Form from '@/components/Form'
+
 export default {
   name: "CreatePost",
+  components: {
+      AppForm: Form
+  },
   data() {
     return {
       post: {
