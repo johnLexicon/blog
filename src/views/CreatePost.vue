@@ -3,9 +3,8 @@
     <div class="col-md-6 col-lg-6">
         <AppForm @on-create-post="createPost" :post="post" />
     </div>  
-    <div class="col-md-6 col-lg-6 text-center text-wrap text-muted">
-        <h1>{{ post.title }}</h1>
-        <p class="word-wrap">{{ post.body }}</p>
+    <div class="col-md-6 col-lg-6">
+        <ContentPreview :post="post" />
     </div>
   </div>
 </template>
@@ -13,11 +12,13 @@
 <script>
 import axios from 'axios'
 import Form from '@/components/Form'
+import ContentPreview from '@/components/ContentPreview'
 
 export default {
   name: "CreatePost",
   components: {
-      AppForm: Form
+      AppForm: Form,
+      ContentPreview
   },
   data() {
     return {
@@ -43,7 +44,4 @@ export default {
 </script>
 
 <style>
-    .word-wrap{
-        word-break: break-all;
-    }
 </style>
