@@ -31,7 +31,7 @@ export default {
   methods: {
       async createPost() {
           try{
-            const result = await axios.post('http://localhost:9999/api/posts/', Object.assign({}, this.post));
+            const result = await axios.post('https://us-central1-blog-webapi.cloudfunctions.net/api/posts/', Object.assign({}, this.post));
             console.log(result);
             this.post = {title: '', body: ''};
             this.$router.push({name: 'Previews'});

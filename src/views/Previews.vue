@@ -40,7 +40,7 @@ export default {
     async retrievePosts() {
       try {
         const result = await axios.get(
-          "http://localhost:9999/api/posts/?justpreviews=true"
+          "https://us-central1-blog-webapi.cloudfunctions.net/api/posts/?justpreviews=true"
         );
         this.posts = result.data;
         this.isLoaded = true;
