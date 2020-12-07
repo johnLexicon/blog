@@ -1,6 +1,7 @@
 <template>
   <div class="word-wrap text-center text-success">
-    <h1>{{ post.title }}</h1>
+    <h1 class="text-dark">Content Preview</h1>
+    <h2>{{ post.title }}</h2>
     <p class="word-wrap">{{ post.body }}</p>
   </div>
 </template>

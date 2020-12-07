@@ -5,7 +5,7 @@
     <div class="card text-center">
       <div class="card-body">
         <h4 class="card-title">{{ post.title }}</h4>
-        <p class="card-text">{{ post.preview }}</p>
+        <p class="card-text">{{ post.preview + '...' }}</p>
         <router-link
           :to="{ name: 'BlogPost', params: { postId: post._id } }"
           class="btn btn-success btn-sm"
